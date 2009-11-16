@@ -9,9 +9,9 @@ function dm3_accounts() {
 
     types["Account"] = {
         fields: [
-            {id: "Username",    model: {type: "text"}, view: {editor: "single line"}, content: ""},
-            {id: "Password",    model: {type: "text"}, view: {editor: "single line"}, content: ""},
-            {id: "Notes",       model: {type: "text"}, view: {editor: "multi line"},  content: ""}
+            {id: "Username", model: {type: "text"}, view: {editor: "single line"}, content: ""},
+            {id: "Password", model: {type: "text"}, view: {editor: "single line"}, content: ""},
+            {id: "Notes",    model: {type: "text"}, view: {editor: "multi line"},  content: ""}
         ],
         implementation: "PlainDocument"
     }
@@ -53,7 +53,9 @@ function dm3_accounts() {
             $("#login_dialog").dialog({
                 title: "Login", buttons: {"OK": try_login}, modal: true,
                 closeOnEscape: false, draggable: false, resizable: false,
-                open: function(event, ui) {$(".ui-dialog-titlebar-close").hide()}
+                open: function(event, ui) {
+                    $(".ui-dialog-titlebar-close").hide()
+                }
             })
         }
 
@@ -66,7 +68,8 @@ function dm3_accounts() {
                 active_account = accounts[0].value
                 //
                 show_message("Login OK", "login_ok", function() {
-                    $("#login_dialog").dialog("close")
+                    $("#login_dialog").dialog("destroy")
+                    $(".ui-dialog-titlebar-close").show()   // leave close box of the other dialogs intact
                 })
             } else {
                 show_message("Login failed", "login_failed")

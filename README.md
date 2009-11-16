@@ -5,7 +5,7 @@ DeepaMehta 3 Accounts Plugin
 Restricts access to DeepaMehta 3 by putting a login dialog at application start.
 Accounts can be created and modified by the user. One account is pre-configured.
 
-Note: there is no access control mechanism with with individual permissions yet.
+Note: there is no access control mechanism with individual permissions yet.
 This plugin just restricts a DeepaMehta 3 installation to a set of well-known users.
 Each user, once logged in, has access to everything.
 
