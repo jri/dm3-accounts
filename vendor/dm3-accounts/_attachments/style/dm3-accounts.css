@@ -1,15 +1,15 @@
 #login_dialog {
-    padding-top: 1.2em;
+    padding-top: 1.5em;
 }
 
 #login_username {
     margin-top: 0.2em;
-    margin-bottom: 0.7em;
+    margin-bottom: 1.2em;
 }
 
 #login_password {
     margin-top: 0.2em;
-    margin-bottom: 1em;
+    margin-bottom: 1.4em;
 }
 
 #login_message {

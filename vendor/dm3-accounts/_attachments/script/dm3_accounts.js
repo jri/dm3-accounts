@@ -46,14 +46,18 @@ function dm3_accounts() {
         function create_login_dialog() {
             var login_dialog = $("<div>").attr("id", "login_dialog")
             var login_message = $("<div>").attr("id", "login_message").html("&nbsp;")
-            login_dialog.append("Username").append($("<input>").attr({id: "login_username"}))
-            login_dialog.append("Password").append($("<input>").attr({id: "login_password", type: "password"}))
-            login_dialog.append(login_message)
+            login_dialog.append($("<div>").addClass("field-name").text("Username"))
+            login_dialog.append($("<input>").attr({id: "login_username"}))
+            login_dialog.append($("<div>").addClass("field-name").text("Password"))
+            login_dialog.append($("<input>").attr({id: "login_password", type: "password"}))
+            // Note: the login message container maintains the space when the login message is faded out (display=none)
+            login_dialog.append($("<div>").attr("id", "login_message_container").append(login_message))
             $("body").append(login_dialog)
+            $("#login_message_container").height($("#login_message").height())
             $("#login_dialog").dialog({
                 title: "Login", buttons: {"OK": try_login}, modal: true,
                 closeOnEscape: false, draggable: false, resizable: false,
-                open: function(event, ui) {
+                open: function() {
                     $(".ui-dialog-titlebar-close").hide()
                 }
             })
@@ -68,8 +72,11 @@ function dm3_accounts() {
                 active_account = accounts[0].value
                 //
                 show_message("Login OK", "login_ok", function() {
-                    $("#login_dialog").dialog("destroy")
-                    $(".ui-dialog-titlebar-close").show()   // leave close box of the other dialogs intact
+                    $("#login_dialog").parent().fadeOut(400, function() {
+                        $("#login_dialog").dialog("destroy")
+                    })
+                    // restore close box of the other dialogs
+                    $(".ui-dialog-titlebar-close").show()
                 })
             } else {
                 show_message("Login failed", "login_failed")
