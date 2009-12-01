@@ -26,14 +26,14 @@ Installation
 2.  Download DeepaMehta 3 Accounts Plugin:
         couchapp vendor install git://github.com/jri/dm3-accounts.git
 
-3.  Activate the plugin by inserting this line to DeepaMehta's `_attachments/javascript/plugins.js`:
+3.  Activate the plugin by inserting one line to DeepaMehta's `_attachments/javascript/plugins.js`:
         add_plugin("vendor/dm3-accounts/script/dm3_accounts.js")
 
 4.  Add additional stuff by copying a directory:
         cp -r vendor/dm3-accounts/views/dm3-accounts views
 
 5.  Upload changes to CouchDB:
-        couchapp push --atomic http://localhost:5984/deepamehta3-db
+        couchapp push http://localhost:5984/deepamehta3-db
 
 
 Usage
@@ -60,6 +60,12 @@ Usage
 2.  Click the *Edit* button and make your changes, e.g. change the password, and click *Save*.
 
 
+Version History
+---------------
+
+`v0.2` -- Dec  1, 2009 -- Basic functionality. Requires DeepaMehta 3 v0.2
+
+
 ------------
 Jörg Richter  
-Nov 16, 2009
+Dec 1, 2009
