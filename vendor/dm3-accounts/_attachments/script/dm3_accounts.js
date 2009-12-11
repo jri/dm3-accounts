@@ -11,7 +11,7 @@ function dm3_accounts() {
         fields: [
             {id: "Username", model: {type: "text"}, view: {editor: "single line"}, content: ""},
             {id: "Password", model: {type: "text"}, view: {editor: "single line"}, content: ""},
-            {id: "Notes",    model: {type: "text"}, view: {editor: "multi line"},  content: ""}
+            {id: "Notes",    model: {type: "html"}, view: {editor: "multi line"},  content: ""}
         ],
         implementation: "PlainDocument"
     }
