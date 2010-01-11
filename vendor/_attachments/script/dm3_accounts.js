@@ -39,7 +39,7 @@ function dm3_accounts() {
             }
 
             function get_all_accounts() {
-                return db.view("deepamehta3/by_type", {key: "Account"})
+                return get_topics_by_type("Account")
             }
         }
 
