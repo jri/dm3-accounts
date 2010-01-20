@@ -7,14 +7,14 @@ function dm3_accounts() {
     css_stylesheet("vendor/dm3-accounts/style/dm3-accounts.css")
     javascript_source("vendor/dm3-accounts/script/sha256.js")
 
-    types["Account"] = {
+    add_topic_type("Account", {
         fields: [
             {id: "Username", model: {type: "text"}, view: {editor: "single line"}, content: ""},
             {id: "Password", model: {type: "text"}, view: {editor: "single line"}, content: ""},
             {id: "Notes",    model: {type: "html"}, view: {editor: "multi line"},  content: ""}
         ],
         implementation: "PlainDocument"
-    }
+    })
 
     active_account = undefined
 
