@@ -13,6 +13,9 @@ function dm3_accounts() {
             {id: "Password", model: {type: "text"}, view: {editor: "single line"}, content: ""},
             {id: "Notes",    model: {type: "html"}, view: {editor: "multi line"},  content: ""}
         ],
+        view: {
+            icon_src: "vendor/dm3-accounts/images/top-hat.png"
+        },
         implementation: "PlainDocument"
     })
 
@@ -34,7 +37,7 @@ function dm3_accounts() {
         function create_default_account() {
 
             var users = get_all_accounts()
-            if (!users.rows.length) {
+            if (!users.length) {
                 create_topic("Account", {Username: DEFAULT_USER, Password: encrypt_password(DEFAULT_PASSWORD)})
             }
 
@@ -126,7 +129,7 @@ function dm3_accounts() {
 
 
     function get_username() {
-        return get_field(active_account, "Username").content
+        return get_value(active_account, "Username")
     }
 
     function encrypt_password(password) {
