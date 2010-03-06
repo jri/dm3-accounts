@@ -29,7 +29,7 @@ Installation
 3.  Activate the plugin by inserting one line to DeepaMehta's `_attachments/javascript/plugins.js`:
         add_plugin("vendor/dm3-accounts/script/dm3_accounts.js")
 
-4.  Add additional stuff by copying a directory:
+4.  Copy additional stuff:
         cp -r vendor/dm3-accounts/views/dm3-accounts views
 
 5.  Upload changes to CouchDB:
@@ -47,7 +47,7 @@ Usage
 
 ### Create another account ###
 
-1.  Accounts are ordinary DeepaMehta 3 documents. You'll find an additional document type *Account*
+1.  Accounts are ordinary DeepaMehta 3 topics. You'll find an additional topic type *Account*
     in the type menu (next to the *Create* button). Create an account.
 
 2.  Fill in the *Username* and *Password* fields and click *Save*. The new account is active from now on.
@@ -60,12 +60,37 @@ Usage
 2.  Click the *Edit* button and make your changes, e.g. change the password, and click *Save*.
 
 
+Updating
+--------
+
+1.  Go to your DeepaMehta 3 installation directory:
+        cd deepamehta3
+
+2.  Update DeepaMehta 3 Accounts Plugin:
+        couchapp vendor update dm3-accounts
+
+3.  Copy additional stuff:
+        cp -r vendor/dm3-accounts/views/dm3-accounts views
+
+4.  Upload changes to CouchDB:
+        couchapp push http://localhost:5984/deepamehta3-db
+
+
 Version History
 ---------------
 
-`v0.2` -- Dec  1, 2009 -- Basic functionality. Requires DeepaMehta 3 v0.2
+**v0.3** -- Mar 6, 2010
+
+* Topic type "Account" got an icon
+* Account "Notes" is a rich text field
+* Compatible with DeepaMehta 3 v0.3
+
+**v0.2** -- Dec 1, 2009
+
+* Basic functionality
+* Requires DeepaMehta 3 v0.2
 
 
 ------------
 Jörg Richter  
-Dec 1, 2009
+Mar 6, 2009
